@@ -1,4 +1,7 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+#define pi 3.142
 
 	char c;
 	char nul;
@@ -109,7 +112,7 @@ int main() {
 	sprintf(sawtooth_var, "%c", number1);
 	
 	for (int increment=0; increment != numberofdatachunks; increment++)
-		{
+	{
 
 			fputc ( 'd' , fp );
 			fputc ( 'a' , fp );
@@ -118,7 +121,18 @@ int main() {
 			fputc ( numsamples, fp );
 			fputc ( numchannels, fp );
 			fputc ( bitspersample[0] , fp );
-	
+			
+			for(int i=0;i<100;i++)
+    {
+			p = int(3276*sin(i)+32767);
+			printf("%d: %d\n", i, p);
+			fputc( p , fp );
+			fputc( NULL , fp );
+			fputc( NULL , fp );
+			fputc( NULL , fp );
+    }
+			
+	/*
 	for (int o=1; o!=50; o++)
 	{
 		lap = 0;
@@ -157,6 +171,7 @@ int main() {
 				}
 			}
 		}
+	*/
 	}
 	
 	printf("\n\n || %c.%c.%c.%c || \n",numsamples,numchannels,bitspersample[0], sawtooth_var[0]);
